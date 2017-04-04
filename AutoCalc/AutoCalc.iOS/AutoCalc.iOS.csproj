@@ -89,6 +89,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'iOS Release|iPhoneSimulator'">
     <OutputPath>bin\iPhoneSimulator\iOS Release\</OutputPath>
+    <MtouchDebug>False</MtouchDebug>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'iOS Release|iPhone'">
     <OutputPath>bin\iPhone\iOS Release\</OutputPath>
