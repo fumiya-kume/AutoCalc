@@ -2,10 +2,46 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:AutoCalc"
+             xmlns:viewmodels="clr-namespace:AutoCalc.ViewModel;assembly=AutoCalc"
+             BindingContext="{Binding Source={x:Static viewmodels:DesighnTimeViewModel.MainPageViewModel}}"
              x:Class="AutoCalc.MainPage">
-
-	<Label Text="Welcome to Xamarin Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
-
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                    iOS="0,20,0,0"
+                    Android="0"
+                    WinPhone="0"/>
+    </ContentPage.Padding>
+    <StackLayout>
+        <Label Text="{Binding InputHistory.Value}"/>
+        <Label Text="{Binding CalcResult.Value}"/>
+        <Grid VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Command="{Binding PlusCommand}" AutomationId="+" Text="+" Grid.Row="0" Grid.Column="0"/>
+            <Button Command="{Binding SubCommand}" AutomationId="-" Text="-" Grid.Row="0" Grid.Column="1"/>
+            <Button AutomationId="*" Text="×" Grid.Row="0" Grid.Column="2"/>
+            <Button Command="{Binding Input1Command}" AutomationId="1" Text="1" Grid.Row="1" Grid.Column="0"/>
+            <Button Command="{Binding Input2Command}" AutomationId="2" Text="2" Grid.Row="1" Grid.Column="1"/>
+            <Button Command="{Binding Input3Command}" AutomationId="3" Text="3" Grid.Row="1" Grid.Column="2"/>
+            <Button Command="{Binding Input4Command}" AutomationId="4" Text="4" Grid.Row="2" Grid.Column="0"/>
+            <Button Command="{Binding Input5Command}" AutomationId="5" Text="5" Grid.Row="2" Grid.Column="1"/>
+            <Button Command="{Binding Input6Command}" AutomationId="6" Text="6" Grid.Row="2" Grid.Column="2"/>
+            <Button Command="{Binding Input7Command}" AutomationId="7" Text="7" Grid.Row="3" Grid.Column="0"/>
+            <Button Command="{Binding Input8Command}" AutomationId="8" Text="8" Grid.Row="3" Grid.Column="1"/>
+            <Button Command="{Binding Input9Command}" AutomationId="9" Text="9" Grid.Row="3" Grid.Column="2"/>
+            <Button Command="{Binding ClearCommand}" AutomationId="C" Text="C" Grid.Row="4" Grid.Column="0"/>
+            <Button Command="{Binding Input0Command}" AutomationId="0" Text="0" Grid.Row="4" Grid.Column="1"/>
+            <Button Command="{Binding ResultCommand}" AutomationId="=" Text="=" Grid.Row="4" Grid.Column="2"/>
+        </Grid>
+    </StackLayout>
 </ContentPage>
