@@ -81,13 +81,13 @@ namespace AutoCalc.ViewModel
 
             Input3Command.Subscribe(o =>
             {
-                InputHistory.Value += "2";
+                InputHistory.Value += "3";
                 CalcModel.Push(3);
             });
             
             Input4Command.Subscribe(o =>
             {
-                InputHistory.Value += "3";
+                InputHistory.Value += "4";
                 CalcModel.Push(4);
             });
 

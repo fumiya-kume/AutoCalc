@@ -7,16 +7,28 @@ namespace AutoCalc.UnitTest
     [TestClass]
     public class CalcTest
     {
-        private CalcModel CalcModel => new CalcModel();
+        private static CalcModel CalcModel => new CalcModel();
 
         [TestMethod]
-        public void AddTest()
+        public void 足し算のテスト()
         {
-            CalcModel.Push(1);
-            CalcModel.Push(2);
-            CalcModel.Add();
-            Assert.AreEqual(CalcModel.CalcValue.Value,3);
+            var Calc= CalcModel;
+            Calc.Push(1);
+            Calc.Push(2);
+            Calc.Add();
+            Calc.Result();
+            Assert.AreEqual(Calc.CalcValue.Value,3);
+        }
 
+        [TestMethod]
+        public void 引き算のテスト()
+        {
+            var Calc = CalcModel;
+            Calc.Push(3);
+            Calc.Push(1);
+            Calc.Sub();
+            Calc.Result();
+            Assert.AreEqual(Calc.CalcValue.Value,2);
         }
     }
 }
